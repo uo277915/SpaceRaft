@@ -18,6 +18,8 @@ public:
 	/* Checks whether an actor is in render */
 	bool isInRender();
 
+	bool containsPoint(int pointX, int pointY);
+
 	//Variables
 	SDL_Texture* texture;
 	int x;

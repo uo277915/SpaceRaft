@@ -1,5 +1,7 @@
 #include "Game.h"
+#include "MainMenuLayer.h"
 #include "GameLayer.h"
+#include "StoryLayer.h"
 
 Game::Game() {
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -13,7 +15,10 @@ Game::Game() {
 	// https://wiki.libsdl.org/SDL_HINT_RENDER_SCALE_QUALITY
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 
+	menuLayer = new MainMenuLayer(this);
+	storyLayer = new StoryLayer(this);
 	gameLayer = new GameLayer(this);
+	changeLayer(0);
 
 	// fuentes
 	TTF_Init();
@@ -21,6 +26,7 @@ Game::Game() {
 
 	loopActive = true; // bucle activo
 	loop();
+
 }
 
 
@@ -32,11 +38,11 @@ void Game::loop() {
 		initTick = SDL_GetTicks();
 
 		// Controles
-		gameLayer->processControls();
+		layer->processControls();
 		// Actualizar elementos
-		gameLayer->update();
+		layer->update();
 		// Dibujar
-		gameLayer->draw();
+		layer->draw();
 
 
 		endTick = SDL_GetTicks();
@@ -88,4 +94,25 @@ SDL_Texture* Game::getTexture(string filename) {
 	}
 
 	return mapTextures[filename];
+}
+
+
+void Game::changeLayer(int layerID) {
+	// Cambia la capa
+
+	switch (layerID) {
+		case 0:
+			Logger::log(0, "Game", "Changed layer to MainMenu");
+			layer = menuLayer;
+			break;
+		case 1:
+			Logger::log(0, "Game", "Changed layer to StoryLayer");
+			layer = storyLayer;
+			break;
+		case 2:
+			Logger::log(0, "Game", "Changed layer to GameLayer");
+			layer = gameLayer;
+			break;
+	}
+
 }

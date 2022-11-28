@@ -3,6 +3,7 @@
 // Todas las librerias de SDL y otras utilidades
 #include <iostream>
 #include <string>
+#include <list>
 using namespace std;
 #include <SDL.h>
 #include <SDL_image.h>
@@ -10,8 +11,8 @@ using namespace std;
 #include <map> 
 
 // Valores generales
-#define WIDTH 480
-#define HEIGHT 320
+#define WIDTH 1440
+#define HEIGHT 900
 
 #include "Layer.h"
 class Layer;
@@ -29,6 +30,8 @@ public:
 	void scale();
 	/*Defines the game time loop*/
 	void loop();
+	/*Changes the layer*/
+	void changeLayer(int layer);
 	/*Returns a texture set on a file
 	* @param filename The name of the texture
 	*/
@@ -43,5 +46,8 @@ public:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	bool loopActive;
+	Layer* layer;
+	Layer* menuLayer;
+	Layer* storyLayer;
 	Layer* gameLayer;
 };

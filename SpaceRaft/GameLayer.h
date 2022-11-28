@@ -3,6 +3,8 @@
 #include "Layer.h"
 #include "Text.h"
 #include "Audio.h" 
+#include "Background.h" 
+#include "FileManager.h" 
 
 #include <list>
 
@@ -24,7 +26,11 @@ public:
 	void draw() override;
 	/* Transform the keys to controls */
 	void keysToControls(SDL_Event event);
+	void mouseToControls(SDL_Event event);
+	void gamePadToControls(SDL_Event event);
 
 	//Variables
+	Background* background;
+	SDL_GameController* gamePad; // Mando
 };
 

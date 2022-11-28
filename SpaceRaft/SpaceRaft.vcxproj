@@ -88,12 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\videojuegos\include;%(AdditionalUsingDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\videojuegos\include;%(AdditionalUsingDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\videojuegos\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\videojuegos\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -152,19 +152,35 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="BoatUI.h" />
+    <ClInclude Include="FileManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="MainMenuLayer.h" />
+    <ClInclude Include="PlayerManager.h" />
+    <ClInclude Include="StoryLayer.h" />
     <ClInclude Include="Text.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BoatUI.cpp" />
+    <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainMenuLayer.cpp" />
+    <ClCompile Include="PlayerManager.cpp" />
+    <ClCompile Include="StoryLayer.cpp" />
     <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -3,28 +3,49 @@
 GameLayer::GameLayer(Game* game)
 	: Layer(game) {
 	//llama al constructor del padre : Layer(renderer)
+	background = new Background("res/img/boat/background.png", WIDTH * 0.5, HEIGHT * 0.5, game);
+
 	init();
+
 }
 
 void GameLayer::init() {
-	
+
+	FileManager::getInstance()->loadPlayer();
+	FileManager::getInstance()->loadShip();
+
+	Logger::log(0, "GameLayer", "Initialized");
 }
 
 void GameLayer::processControls() {
 	// obtener controles
 	SDL_Event event;
 	while (SDL_PollEvent(&event)) {
+		if (event.type == SDL_CONTROLLERDEVICEADDED) {
+			gamePad = SDL_GameControllerOpen(0);
+			if (gamePad == NULL) {
+				cout << "error en GamePad" << endl;
+			}
+			else {
+				cout << "GamePad conectado" << endl;
+			}
+		}
+
+		gamePadToControls(event);
 		keysToControls(event);
+		mouseToControls(event);
 	}
 }
 
 void GameLayer::update() {
 
-	cout << "update GameLayer" << endl;
+
 }
 
 void GameLayer::draw() {
 	
+	background->draw();
+
 	SDL_RenderPresent(game->renderer); // Renderiza
 }
 
@@ -76,4 +97,24 @@ void GameLayer::keysToControls(SDL_Event event) {
 
 	}
 
+}
+
+void GameLayer::mouseToControls(SDL_Event event) {
+	// Modificación de coordenadas por posible escalado
+	float motionX = event.motion.x / game->scaleLower;
+	float motionY = event.motion.y / game->scaleLower;
+
+	// Cada vez que hacen click
+	if (event.type == SDL_MOUSEBUTTONDOWN) {
+
+	}
+}
+
+void GameLayer::gamePadToControls(SDL_Event event) {
+	// Leer los botones
+	bool buttonA = SDL_GameControllerGetButton(gamePad, SDL_CONTROLLER_BUTTON_A);
+
+	if (buttonA) {
+
+	}
 }

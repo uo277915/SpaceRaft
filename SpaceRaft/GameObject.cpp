@@ -56,3 +56,13 @@ bool GameObject::isInRender() {
 	}
 	return false;
 }
+
+bool GameObject::containsPoint(int pointX, int pointY) {
+	if (pointY >= y - height / 2 &&
+		pointY <= y + height / 2 &&
+		pointX <= x + width / 2 &&
+		pointX >= x - width / 2) {
+		return true;
+	}
+	return false;
+}

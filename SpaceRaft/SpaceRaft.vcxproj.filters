@@ -25,6 +25,12 @@
     <Filter Include="Archivos de origen\GameObjects">
       <UniqueIdentifier>{2aee039c-1795-4a92-a193-d43214023113}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Item">
+      <UniqueIdentifier>{d92decad-97e8-4f77-8666-64aeb71b9947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Item">
+      <UniqueIdentifier>{b63a3ebd-84a2-4142-88a7-736fb36fcded}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -44,6 +50,30 @@
     </ClInclude>
     <ClInclude Include="Text.h">
       <Filter>Archivos de encabezado\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuLayer.h">
+      <Filter>Archivos de encabezado\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Archivos de encabezado\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="StoryLayer.h">
+      <Filter>Archivos de encabezado\Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="BoatUI.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerManager.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Archivos de encabezado\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +96,30 @@
       <Filter>Archivos de origen\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuLayer.cpp">
+      <Filter>Archivos de origen\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Archivos de origen\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="StoryLayer.cpp">
+      <Filter>Archivos de origen\Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="BoatUI.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Archivos de origen\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
