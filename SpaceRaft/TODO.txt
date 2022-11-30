@@ -1,0 +1,15 @@
+Collisions outside of borders
+Scroll (X, Y)
+
+SpaceShip
+	Junk Spawn
+	Items
+
+UI
+	Interface
+	Crafting
+	Building Placing
+
+Rifts
+	tp
+	challenges

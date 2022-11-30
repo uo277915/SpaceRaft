@@ -10,6 +10,11 @@ PlayerManager* PlayerManager::getInstance()
     return instance;
 }
 
+void PlayerManager::createPlayer(Game* game)
+{
+    player = new Player(WIDTH/2, HEIGHT/2, game);
+}
+
 void PlayerManager::add(int metal, int meat)
 {
     metalAmount += metal;
@@ -45,5 +50,13 @@ void PlayerManager::lowerHunger(int hunger)
 void PlayerManager::increaseHunger(int hunger)
 {
     this->hunger += hunger;
+}
+
+void PlayerManager::setSpawnPoint(float x, float y)
+{
+    spawnX = x;
+    spawnY = y;
+    player->x = x;
+    player->y = y;
 }
 

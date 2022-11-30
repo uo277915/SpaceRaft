@@ -5,8 +5,13 @@
 #include "Audio.h" 
 #include "Background.h" 
 #include "FileManager.h" 
+#include "Tile.h" 
+#include "Pointer.h" 
+#include "TilePlacingPointer.h"
+#include "BuildingPlacingPointer.h"
 
 #include <list>
+#include "CollisionController.h"
 
 
 /* Class defining the Game Layer */
@@ -32,5 +37,12 @@ public:
 	//Variables
 	Background* background;
 	SDL_GameController* gamePad; // Mando
+	ShipManager* shipManager;
+	CollisionController* collisionController;
+	TilePlacingPointer* tilePointer;
+	BuildingPlacingPointer* buildPointer;
+
+	int controlMoveX = 0;
+	int controlMoveY = 0;
 };
 

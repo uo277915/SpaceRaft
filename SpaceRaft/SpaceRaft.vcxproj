@@ -154,6 +154,10 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="BoatUI.h" />
+    <ClInclude Include="Building.h" />
+    <ClInclude Include="BuildingPlacingPointer.h" />
+    <ClInclude Include="CollisionController.h" />
+    <ClInclude Include="EmptyTile.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameLayer.h" />
@@ -162,14 +166,25 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="MainMenuLayer.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerManager.h" />
+    <ClInclude Include="Pointer.h" />
+    <ClInclude Include="TilePlacingPointer.h" />
+    <ClInclude Include="ShipFloor.h" />
+    <ClInclude Include="ShipManager.h" />
     <ClInclude Include="StoryLayer.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileImageNotFound.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BoatUI.cpp" />
+    <ClCompile Include="Building.cpp" />
+    <ClCompile Include="BuildingPlacingPointer.cpp" />
+    <ClCompile Include="CollisionController.cpp" />
+    <ClCompile Include="EmptyTile.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameLayer.cpp" />
@@ -179,9 +194,19 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenuLayer.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerManager.cpp" />
+    <ClCompile Include="Pointer.cpp" />
+    <ClCompile Include="TilePlacingPointer.cpp" />
+    <ClCompile Include="ShipFloor.cpp" />
+    <ClCompile Include="ShipManager.cpp" />
     <ClCompile Include="StoryLayer.cpp" />
     <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileImageNotFound.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

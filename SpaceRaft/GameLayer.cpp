@@ -4,6 +4,10 @@ GameLayer::GameLayer(Game* game)
 	: Layer(game) {
 	//llama al constructor del padre : Layer(renderer)
 	background = new Background("res/img/boat/background.png", WIDTH * 0.5, HEIGHT * 0.5, game);
+	collisionController = new CollisionController();
+	shipManager = new ShipManager();
+	tilePointer = new TilePlacingPointer(game);
+	buildPointer = new BuildingPlacingPointer(game);
 
 	init();
 
@@ -11,8 +15,12 @@ GameLayer::GameLayer(Game* game)
 
 void GameLayer::init() {
 
+	// Collisions & Movement
+	collisionController->init();
+	collisionController->addObject(PlayerManager::getInstance()->player);
+
 	FileManager::getInstance()->loadPlayer();
-	FileManager::getInstance()->loadShip();
+	FileManager::getInstance()->loadShip(shipManager, collisionController, game);
 
 	Logger::log(0, "GameLayer", "Initialized");
 }
@@ -39,17 +47,47 @@ void GameLayer::processControls() {
 
 void GameLayer::update() {
 
+	// Eje X
+	if (controlMoveX > 0) {
+		PlayerManager::getInstance()->player->moveX(1);
+	}
+	else if (controlMoveX < 0) {
+		PlayerManager::getInstance()->player->moveX(-1);
+	}
+	else {
+		PlayerManager::getInstance()->player->moveX(0);
+	}
 
+	// Eje Y
+	if (controlMoveY > 0) {
+		PlayerManager::getInstance()->player->moveY(1);
+	}
+	else if (controlMoveY < 0) {
+		PlayerManager::getInstance()->player->moveY(-1);
+	}
+	else {
+		PlayerManager::getInstance()->player->moveY(0);
+	}
+
+	collisionController->update();
+
+	tilePointer->update(shipManager);
+	buildPointer->update(shipManager);
 }
 
 void GameLayer::draw() {
 	
 	background->draw();
+	shipManager->draw();
+	tilePointer->draw();
+	buildPointer->draw();
+	PlayerManager::getInstance()->player->draw();
 
 	SDL_RenderPresent(game->renderer); // Renderiza
 }
 
 void GameLayer::keysToControls(SDL_Event event) {
+
 	if (event.type == SDL_KEYDOWN) {
 		int code = event.key.keysym.sym;
 		// Pulsada
@@ -61,42 +99,52 @@ void GameLayer::keysToControls(SDL_Event event) {
 			game->scale();
 			break;
 		case SDLK_d: // derecha
+			controlMoveX = 1;
 			break;
 		case SDLK_a: // izquierda
+			controlMoveX = -1;
 			break;
 		case SDLK_w: // arriba
+			controlMoveY = 1;
 			break;
 		case SDLK_s: // abajo
+			controlMoveY = -1;
 			break;
-		case SDLK_SPACE: // dispara
-			break;
-
+			// TODO: Remove
 		case SDLK_1:
-			break;
-		case SDLK_2:
-			break;
-		}
-
-
-	}
-	if (event.type == SDL_KEYUP) {
-		int code = event.key.keysym.sym;
-		// Levantada
-		switch (code) {
-		case SDLK_d: // derecha
-			break;
-		case SDLK_a: // izquierda
-			break;
-		case SDLK_w: // arriba
-			break;
-		case SDLK_s: // abajo
-			break;
-		case SDLK_SPACE: // dispara
+			tilePointer->loadTile(new ShipFloor(0, 0, game));
+			tilePointer->active = true;
 			break;
 		}
-
 	}
+		if (event.type == SDL_KEYUP) {
+			int code = event.key.keysym.sym;
+			// Levantada
+			switch (code) {
+			case SDLK_d: // derecha
+				if (controlMoveX > 0) {
+					controlMoveX = 0;
+				}
+				break;
+			case SDLK_a: // izquierda
+				if (controlMoveX < 0) {
+					controlMoveX = 0;
+				}
+				break;
+			case SDLK_w: // arriba
+				if (controlMoveY > 0) {
+					controlMoveY = 0;
+				}
+				break;
+			case SDLK_s: // abajo
+				if (controlMoveY < 0) {
+					controlMoveY = 0;
+				}
+				break;
+			}
 
+		
+	}
 }
 
 void GameLayer::mouseToControls(SDL_Event event) {
@@ -106,7 +154,7 @@ void GameLayer::mouseToControls(SDL_Event event) {
 
 	// Cada vez que hacen click
 	if (event.type == SDL_MOUSEBUTTONDOWN) {
-
+		tilePointer->handleClick(shipManager, collisionController);
 	}
 }
 

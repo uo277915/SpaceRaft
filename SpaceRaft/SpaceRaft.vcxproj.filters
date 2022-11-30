@@ -31,6 +31,30 @@
     <Filter Include="Archivos de origen\Item">
       <UniqueIdentifier>{b63a3ebd-84a2-4142-88a7-736fb36fcded}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Tile">
+      <UniqueIdentifier>{a5fdfb46-a923-476b-95bd-1a07a8ac1f6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Tile">
+      <UniqueIdentifier>{b3314ff2-434a-46bb-a215-6833a612734e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Managers">
+      <UniqueIdentifier>{3effd37e-47f2-420f-afc9-6b500faece60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Managers">
+      <UniqueIdentifier>{4f85f250-ba18-4874-92c6-7e1714152231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Pointers">
+      <UniqueIdentifier>{4bb3950d-b92c-4c58-b7bd-326eca2b8249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Pointers">
+      <UniqueIdentifier>{f3e9053f-2834-4a11-8e2f-165ee19277f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Buildings">
+      <UniqueIdentifier>{6fad088b-03ec-4cac-9669-ab6d2a5a379c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Buildings">
+      <UniqueIdentifier>{5a95674e-b40b-4bb8-85bc-2117c7a5877a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -66,14 +90,47 @@
     <ClInclude Include="BoatUI.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Archivos de encabezado\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Archivos de encabezado\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="ShipFloor.h">
+      <Filter>Archivos de encabezado\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="TileImageNotFound.h">
+      <Filter>Archivos de encabezado\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyTile.h">
+      <Filter>Archivos de encabezado\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Archivos de encabezado\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerManager.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
     <ClInclude Include="FileManager.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionController.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="TilePlacingPointer.h">
+      <Filter>Archivos de encabezado\Pointers</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingPlacingPointer.h">
+      <Filter>Archivos de encabezado\Pointers</Filter>
+    </ClInclude>
+    <ClInclude Include="Pointer.h">
+      <Filter>Archivos de encabezado\Pointers</Filter>
+    </ClInclude>
+    <ClInclude Include="Building.h">
+      <Filter>Archivos de encabezado\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="ShipManager.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -113,14 +170,50 @@
     <ClCompile Include="BoatUI.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerManager.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Archivos de origen\Item</Filter>
     </ClCompile>
-    <ClCompile Include="FileManager.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Archivos de origen\Tile</Filter>
     </ClCompile>
+    <ClCompile Include="ShipFloor.cpp">
+      <Filter>Archivos de origen\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="TileImageNotFound.cpp">
+      <Filter>Archivos de origen\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyTile.cpp">
+      <Filter>Archivos de origen\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Archivos de origen\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionController.cpp">
+      <Filter>Archivos de origen\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerManager.cpp">
+      <Filter>Archivos de origen\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>Archivos de origen\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="TilePlacingPointer.cpp">
+      <Filter>Archivos de origen\Pointers</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingPlacingPointer.cpp">
+      <Filter>Archivos de origen\Pointers</Filter>
+    </ClCompile>
+    <ClCompile Include="Pointer.cpp">
+      <Filter>Archivos de origen\Pointers</Filter>
+    </ClCompile>
+    <ClCompile Include="ShipManager.cpp">
+      <Filter>Archivos de origen\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Building.cpp">
+      <Filter>Archivos de origen\Buildings</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt" />
   </ItemGroup>
 </Project>

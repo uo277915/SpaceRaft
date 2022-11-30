@@ -15,6 +15,8 @@ Game::Game() {
 	// https://wiki.libsdl.org/SDL_HINT_RENDER_SCALE_QUALITY
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 
+	PlayerManager::getInstance()->createPlayer(this);
+
 	menuLayer = new MainMenuLayer(this);
 	storyLayer = new StoryLayer(this);
 	gameLayer = new GameLayer(this);

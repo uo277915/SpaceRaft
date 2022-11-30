@@ -1,0 +1,23 @@
+The data is defined as follows:
+
+In "player.data":
+	[Health] [Hunger]
+	[Metal] [Meat]
+	[Item1_unlocked]... [ItemX_unlocked]
+	[Amount_of_crystals]
+	
+In "ship.data":
+	For each tile (50x50) we have:
+	[Floor_tile][Building][Player_on]
+	
+	Where:
+		Floor_tile:
+			- f -> Basic Floor
+			- 0 -> Empty
+			- Any Other -> Texture not found
+			
+		Building
+			- - -> Nothing
+			
+		Player_on
+			- 1 -> Player spawn here
