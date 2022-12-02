@@ -1,0 +1,6 @@
+Dobble Generator
+
+- Color picker
+- Subtitle (Dobble *AHA*)
+- Multiple PNG selector
+- 

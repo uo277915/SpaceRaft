@@ -151,11 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AncientFloor.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="BoatUI.h" />
     <ClInclude Include="Building.h" />
     <ClInclude Include="BuildingPlacingPointer.h" />
+    <ClInclude Include="BuildingRemovePointer.h" />
     <ClInclude Include="CollisionController.h" />
     <ClInclude Include="EmptyTile.h" />
     <ClInclude Include="FileManager.h" />
@@ -170,19 +172,22 @@
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="Pointer.h" />
     <ClInclude Include="TilePlacingPointer.h" />
-    <ClInclude Include="ShipFloor.h" />
+    <ClInclude Include="RustyFloor.h" />
     <ClInclude Include="ShipManager.h" />
     <ClInclude Include="StoryLayer.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileImageNotFound.h" />
+    <ClInclude Include="TileRemovePointer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AncientFloor.cpp" />
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BoatUI.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="BuildingPlacingPointer.cpp" />
+    <ClCompile Include="BuildingRemovePointer.cpp" />
     <ClCompile Include="CollisionController.cpp" />
     <ClCompile Include="EmptyTile.cpp" />
     <ClCompile Include="FileManager.cpp" />
@@ -198,12 +203,13 @@
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="Pointer.cpp" />
     <ClCompile Include="TilePlacingPointer.cpp" />
-    <ClCompile Include="ShipFloor.cpp" />
+    <ClCompile Include="RustyFloor.cpp" />
     <ClCompile Include="ShipManager.cpp" />
     <ClCompile Include="StoryLayer.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileImageNotFound.cpp" />
+    <ClCompile Include="TileRemovePointer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

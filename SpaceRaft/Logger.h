@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-static class Logger
+class Logger
 {
 public:
 	static void log(int ident, string from, string msg);

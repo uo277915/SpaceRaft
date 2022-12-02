@@ -10,7 +10,7 @@ public:
 	/* Constructor for a static background */
 	Background(string filename, float x, float y, Game* game);
 	/* Constructor for an animated background */
-	Background(string filename, float x, float y, float vx, Game* game);
+	Background(string filename, float x, float y, float vy, Game* game);
 	/* Draws the background on screen */
 	void draw() override;
 	/* Updates the background */
@@ -18,5 +18,4 @@ public:
 
 	//Variables
 	Background* backgroundAux = nullptr;
-
 };

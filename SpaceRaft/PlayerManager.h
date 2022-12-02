@@ -22,6 +22,7 @@ public:
 
 	const int MAX_HEALTH = 100;
 	const int MAX_HUNGER = 100;
+	const float SPEED = 10;
 
 private:
 	static PlayerManager* instance;

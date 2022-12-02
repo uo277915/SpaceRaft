@@ -5,30 +5,34 @@ Background::Background(string filename, float x, float y, Game* game)
 
 }
 
-Background::Background(string filename, float x, float y, float vx, Game* game)
+Background::Background(string filename, float x, float y, float vy, Game* game)
     : GameObject(filename, x, y, WIDTH, HEIGHT, game) {
 
-    this->vx = vx;
-    if (vx != 0) {
-        backgroundAux = new Background(filename, x + WIDTH, y, game);
+    this->vy = vy;
+    if (vy != 0) {
+        backgroundAux = new Background(filename, x, y - HEIGHT, game);
     }
 }
 
 void Background::update() {
-    if (vx != 0) {
-        x = x + vx;
 
-        // se salio por la izquierda
-        if (x + width / 2 < 0) {
-            // vuelve a aparecer por la derecha
-            x = WIDTH + width / 2;
+    if (vy != 0) {
+        y += vy;
+        backgroundAux->y += vy;
+
+        if (y + height / 2 < 0) {
+            y = HEIGHT + height / 2;
         }
-        // se salio por la derecha
-        if (x - width / 2 > WIDTH) {
-            // vuelve por la izquierda
-            x = 0 - width / 2;
+        if (backgroundAux->y + height / 2 < 0) {
+            backgroundAux->y = HEIGHT + height / 2;
         }
 
+        if (y - height / 2 > HEIGHT) {
+            y = 0 - height / 2;
+        }
+        if (backgroundAux->y - height / 2 > HEIGHT) {
+            backgroundAux->y = 0 - height / 2;
+        }
     }
 }
 
@@ -36,16 +40,6 @@ void Background::draw() {
     GameObject::draw(); // llamar al metodo del hijo
 
     if (backgroundAux != NULL) {
-        // zona sin cubrir por la izquierda
-        if (x - width / 2 > 0) {
-            // pintar aux por la izquierda
-            backgroundAux->x = x - width;
-        }
-        // zona sin cubrir por la derecha
-        if (x + width / 2 < WIDTH) {
-            // pintar aux por la derecha
-            backgroundAux->x = x + width;
-        }
         backgroundAux->draw();
     }
 

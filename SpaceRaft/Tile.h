@@ -14,5 +14,6 @@ public:
     bool hasCollision = true;
 
     Building* building = nullptr;
+    string id = "?";
 };
 

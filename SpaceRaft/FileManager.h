@@ -4,25 +4,27 @@
 #include "PlayerManager.h"
 
 #include "Tile.h"
-#include "ShipFloor.h"
-#include "TileImageNotFound.h"
-#include "CollisionController.h"
+#include "RustyFloor.h"
+#include "AncientFloor.h"
 #include "EmptyTile.h"
+#include "TileImageNotFound.h"
+
+#include "CollisionController.h"
+#include "ShipManager.h"
 
 #include <fstream> 
 #include <sstream> 
-#include "ShipManager.h"
 
 class FileManager
 {
 public:
 	static FileManager* getInstance();
-	void loadPlayer(); 
+	void loadPlayer();
+	void savePlayer();
 	void loadShip(ShipManager* shipManager, CollisionController* collisionController, Game* game);
+	void saveShip(ShipManager* shipManager);
 	void loadMap();
 	Tile* loadMapObject(string string, float x, float y, CollisionController* collisionController, Game* game);
-	void savePlayer();
-	void saveShip();
 
 protected:
 	static FileManager* instance;

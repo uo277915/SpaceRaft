@@ -3,13 +3,11 @@
 GameLayer::GameLayer(Game* game)
 	: Layer(game) {
 	//llama al constructor del padre : Layer(renderer)
-	background = new Background("res/img/boat/background.png", WIDTH * 0.5, HEIGHT * 0.5, game);
+	background = new Background("res/img/boat/background.png", WIDTH * 0.5, HEIGHT * 0.5, 2, game);
 	collisionController = new CollisionController();
 	shipManager = new ShipManager();
 	tilePointer = new TilePlacingPointer(game);
 	buildPointer = new BuildingPlacingPointer(game);
-
-	init();
 
 }
 
@@ -73,6 +71,7 @@ void GameLayer::update() {
 
 	tilePointer->update(shipManager);
 	buildPointer->update(shipManager);
+	background->update();
 }
 
 void GameLayer::draw() {
@@ -93,6 +92,7 @@ void GameLayer::keysToControls(SDL_Event event) {
 		// Pulsada
 		switch (code) {
 		case SDLK_ESCAPE:
+			FileManager::getInstance()->saveShip(shipManager);
 			game->loopActive = false;
 			break;
 		case SDLK_0:
@@ -112,7 +112,7 @@ void GameLayer::keysToControls(SDL_Event event) {
 			break;
 			// TODO: Remove
 		case SDLK_1:
-			tilePointer->loadTile(new ShipFloor(0, 0, game));
+			tilePointer->loadTile(new RustyFloor(0, 0, game));
 			tilePointer->active = true;
 			break;
 		}

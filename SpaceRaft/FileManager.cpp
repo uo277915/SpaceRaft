@@ -30,12 +30,8 @@ void FileManager::loadShip(ShipManager* shipManager, CollisionController* collis
 		return;
 	}
 	else {
-		// Por l�nea
 		for (int i = 0; getline(streamFile, line); i++) {
-			//map[i] = new Tile* [15];
 			istringstream streamLine(line);
-			//mapWidth = line.length() * 40; // Ancho del mapa en pixels
-			// Por car�cter (en cada l�nea)
 			
 			int foundAt = 0;
 			float size = ShipManager::TILE_SIZE;
@@ -58,21 +54,48 @@ void FileManager::loadShip(ShipManager* shipManager, CollisionController* collis
 				float y = size + i * size; // y suelo
 				map[i][j] = loadMapObject(word, x, y, collisionController, game);
 			}
-
-			/*
-			for (int j = 0; !streamLine.eof(); j++) {
-				streamLine >> character; // Leer character 
-				cout << character;
-				float x = 40 / 2 + j * 40; // x central
-				float y = 32 + i * 32; // y suelo
-				map[i][j] = loadMapObject(character, x, y, game);
-			}
-			*/
 		}
 	}
 	streamFile.close();
 
     Logger::log(1, "FileManager", "Ship data has been loaded...");
+}
+
+void FileManager::saveShip(ShipManager* shipManager)
+{
+	char character;
+	auto* map = shipManager->map;
+	ofstream streamFile("res/doc/ship.data");
+	if (!streamFile.is_open()) {
+		cout << "ERROR WHEN OPENING SHIP FILE" << endl;
+		return;
+	}
+	else {
+		for (int i = 0; i < ShipManager::SHIP_SIZE; i++) {
+			for (int j = 0; j < ShipManager::SHIP_SIZE; j++) {
+				streamFile << map[i][j]->id;
+
+				auto* building = map[i][j]->building;
+				if (building != nullptr) {
+					streamFile << building->id;
+				}
+				else {
+					streamFile << "-";
+				}
+
+				auto* player = PlayerManager::getInstance()->player;
+
+				if (map[i][j]->containsPoint(player->x, player->y)) {
+					streamFile << "1";
+				}
+				streamFile << "\t";
+			}
+			streamFile << "\n";
+		}
+	}
+	streamFile.close();
+
+	Logger::log(1, "FileManager", "Ship data has been saved...");
 }
 
 Tile* FileManager::loadMapObject(string string, float x, float y, CollisionController* collisionController, Game* game) 
@@ -82,8 +105,11 @@ Tile* FileManager::loadMapObject(string string, float x, float y, CollisionContr
 	// Floors
 	if (string.length() >= 1) {
 		switch (string[0]) {
-		case 'f':
-			tile = new ShipFloor(x, y, game);
+		case 'r':
+			tile = new RustyFloor(x, y, game);
+			break;
+		case 'a':
+			tile = new AncientFloor(x, y, game);
 			break;
 		case '0':
 			tile = new EmptyTile(x, y, game);
@@ -122,9 +148,4 @@ void FileManager::loadMap()
 void FileManager::savePlayer()
 {
     Logger::log(1, "FileManager", "Player data has been saved...");
-}
-
-void FileManager::saveShip()
-{
-    Logger::log(1, "FileManager", "Ship data has been saved...");
 }

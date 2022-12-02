@@ -1,6 +1,7 @@
 #include "Player.h"
+#include "ShipManager.h"
 
-Player::Player(float x, float y, Game* game) : GameObject("res/img/general/player.png", x, y, 50, 100, game)
+Player::Player(float x, float y, Game* game) : GameObject("res/img/general/player.png", x, y, 75, 150, game)
 {
 
 }

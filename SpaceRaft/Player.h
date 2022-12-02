@@ -11,5 +11,5 @@ public:
 	void moveX(float vx);
 	void moveY(float vy);
 
-	float speed = 3;
+	float speed = 10;
 };

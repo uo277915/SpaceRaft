@@ -5,5 +5,7 @@
 class Building :
 	public GameObject
 {
+public:
+	string id = "-";
 };
 

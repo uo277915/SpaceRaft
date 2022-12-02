@@ -113,6 +113,7 @@ void Game::changeLayer(int layerID) {
 			break;
 		case 2:
 			Logger::log(0, "Game", "Changed layer to GameLayer");
+			gameLayer->init();
 			layer = gameLayer;
 			break;
 	}
