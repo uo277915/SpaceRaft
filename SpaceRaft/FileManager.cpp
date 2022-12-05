@@ -1,6 +1,21 @@
 #include "FileManager.h"
 #include "GameLayer.h"
 
+#include "Logger.h"
+//#include "PlayerManager.h"
+
+#include "Tile.h"
+#include "RustyFloor.h"
+#include "AncientFloor.h"
+#include "EmptyTile.h"
+#include "TileImageNotFound.h"
+
+#include "CollisionController.h"
+#include "ShipManager.h"
+
+#include <fstream> 
+#include <sstream> 
+
 FileManager* FileManager::instance = nullptr;
 
 FileManager* FileManager::getInstance()

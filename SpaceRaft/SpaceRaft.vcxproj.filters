@@ -37,23 +37,29 @@
     <Filter Include="Archivos de origen\Managers">
       <UniqueIdentifier>{4f85f250-ba18-4874-92c6-7e1714152231}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\Buildings">
-      <UniqueIdentifier>{6fad088b-03ec-4cac-9669-ab6d2a5a379c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Buildings">
-      <UniqueIdentifier>{5a95674e-b40b-4bb8-85bc-2117c7a5877a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\GameObjects\Tile">
-      <UniqueIdentifier>{b3314ff2-434a-46bb-a215-6833a612734e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de origen\GameObjects\Pointers">
       <UniqueIdentifier>{f3e9053f-2834-4a11-8e2f-165ee19277f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\GameObjects\Tile">
-      <UniqueIdentifier>{a5fdfb46-a923-476b-95bd-1a07a8ac1f6e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\GameObjects\Pointers">
       <UniqueIdentifier>{4bb3950d-b92c-4c58-b7bd-326eca2b8249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Crafteable">
+      <UniqueIdentifier>{59399d10-4b2a-4882-9d38-047fe0763557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Crafteable\Tile">
+      <UniqueIdentifier>{b3314ff2-434a-46bb-a215-6833a612734e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Crafteable\Buildings">
+      <UniqueIdentifier>{6fad088b-03ec-4cac-9669-ab6d2a5a379c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\GameObjects\Craftable">
+      <UniqueIdentifier>{df5828d7-25ad-48bb-a1ce-e8e9e091f7d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\GameObjects\Craftable\Buildings">
+      <UniqueIdentifier>{5a95674e-b40b-4bb8-85bc-2117c7a5877a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\GameObjects\Craftable\Tile">
+      <UniqueIdentifier>{a5fdfb46-a923-476b-95bd-1a07a8ac1f6e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -94,16 +100,16 @@
       <Filter>Archivos de encabezado\Item</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
-      <Filter>Archivos de encabezado\GameObjects\Tile</Filter>
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Tile</Filter>
     </ClInclude>
     <ClInclude Include="RustyFloor.h">
-      <Filter>Archivos de encabezado\GameObjects\Tile</Filter>
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Tile</Filter>
     </ClInclude>
     <ClInclude Include="TileImageNotFound.h">
-      <Filter>Archivos de encabezado\GameObjects\Tile</Filter>
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Tile</Filter>
     </ClInclude>
     <ClInclude Include="EmptyTile.h">
-      <Filter>Archivos de encabezado\GameObjects\Tile</Filter>
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Tile</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Archivos de encabezado\GameObjects</Filter>
@@ -127,19 +133,25 @@
       <Filter>Archivos de encabezado\GameObjects\Pointers</Filter>
     </ClInclude>
     <ClInclude Include="Building.h">
-      <Filter>Archivos de encabezado\Buildings</Filter>
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Buildings</Filter>
     </ClInclude>
     <ClInclude Include="ShipManager.h">
       <Filter>Archivos de encabezado\Managers</Filter>
     </ClInclude>
     <ClInclude Include="AncientFloor.h">
-      <Filter>Archivos de encabezado\GameObjects\Tile</Filter>
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Tile</Filter>
     </ClInclude>
     <ClInclude Include="TileRemovePointer.h">
       <Filter>Archivos de encabezado\GameObjects\Pointers</Filter>
     </ClInclude>
     <ClInclude Include="BuildingRemovePointer.h">
       <Filter>Archivos de encabezado\GameObjects\Pointers</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingImageNotFound.h">
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="Craftable.h">
+      <Filter>Archivos de encabezado\GameObjects\Craftable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -183,16 +195,16 @@
       <Filter>Archivos de origen\Item</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
-      <Filter>Archivos de origen\GameObjects\Tile</Filter>
+      <Filter>Archivos de origen\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="RustyFloor.cpp">
-      <Filter>Archivos de origen\GameObjects\Tile</Filter>
+      <Filter>Archivos de origen\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="TileImageNotFound.cpp">
-      <Filter>Archivos de origen\GameObjects\Tile</Filter>
+      <Filter>Archivos de origen\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="EmptyTile.cpp">
-      <Filter>Archivos de origen\GameObjects\Tile</Filter>
+      <Filter>Archivos de origen\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Archivos de origen\GameObjects</Filter>
@@ -219,16 +231,22 @@
       <Filter>Archivos de origen\Managers</Filter>
     </ClCompile>
     <ClCompile Include="Building.cpp">
-      <Filter>Archivos de origen\Buildings</Filter>
+      <Filter>Archivos de origen\Crafteable\Buildings</Filter>
     </ClCompile>
     <ClCompile Include="AncientFloor.cpp">
-      <Filter>Archivos de origen\GameObjects\Tile</Filter>
+      <Filter>Archivos de origen\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="TileRemovePointer.cpp">
       <Filter>Archivos de origen\GameObjects\Pointers</Filter>
     </ClCompile>
     <ClCompile Include="BuildingRemovePointer.cpp">
       <Filter>Archivos de origen\GameObjects\Pointers</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingImageNotFound.cpp">
+      <Filter>Archivos de origen\Crafteable\Buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="Craftable.cpp">
+      <Filter>Archivos de origen\Crafteable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

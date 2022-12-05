@@ -3,6 +3,7 @@
 #include "Item.h"
 #include <vector>
 #include "Player.h"
+#include "Craftable.h"
 
 class PlayerManager
 {
@@ -18,17 +19,21 @@ public:
 	void increaseHunger(int hunger);
 	void setSpawnPoint(float x, float y);
 
+	bool canBuild(Craftable* craftable);
+
 	Item* selectedItem;
 
 	const int MAX_HEALTH = 100;
 	const int MAX_HUNGER = 100;
 	const float SPEED = 10;
 
+
 private:
 	static PlayerManager* instance;
 
-	int metalAmount;
-	int meatAmount;
+	int metalAmount = 0;
+	int meatAmount = 0;
+	int ancientAmount = 0;
 
 	int health;
 	int hunger;
@@ -38,4 +43,3 @@ private:
 	int spawnX = 0;
 	int spawnY = 0;
 };
-

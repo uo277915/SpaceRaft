@@ -1,4 +1,5 @@
 #include "TilePlacingPointer.h"
+#include "TileImageNotFound.h"
 #include "GameLayer.h"
 
 TilePlacingPointer::TilePlacingPointer(Game* game) : Pointer(game) 
@@ -63,6 +64,7 @@ void TilePlacingPointer::update(ShipManager* shipManager)
 							|| (i - 1 >= 0 && map[i - 1][j]->built)
 							|| (j + 1 < ShipManager::SHIP_SIZE && map[i][j + 1]->built)
 							|| (j - 1 >= 0 && map[i][j - 1]->built))
+						&& PlayerManager::getInstance()->canBuild(tile)
 						) {
 
 						iToReplace = i;

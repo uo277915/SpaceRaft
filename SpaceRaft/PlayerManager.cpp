@@ -60,3 +60,13 @@ void PlayerManager::setSpawnPoint(float x, float y)
     player->y = y;
 }
 
+bool PlayerManager::canBuild(Craftable* craftable)
+{
+    if (craftable->priceMetal < metalAmount
+        && craftable->priceMeat < meatAmount
+        && craftable->priceAncient < ancientAmount
+        ) {
+        return true;
+    }
+    return false;
+}

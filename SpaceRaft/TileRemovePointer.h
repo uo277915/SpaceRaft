@@ -1,9 +1,11 @@
 #pragma once
 #include "Pointer.h"
+#include "PlayerManager.cpp"
 #include "CollisionController.h"
 class TileRemovePointer :
     public Pointer
 {
+public:
 	TileRemovePointer(Game* game);
 	void handleClick(ShipManager* shipManager, CollisionController* collisionController);
 

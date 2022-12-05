@@ -7,6 +7,17 @@ RustyFloor::RustyFloor(float x, float y, Game* game) : Tile("res/img/boat/tiles/
 	built = true;
 	hasCollision = false;
 	id = "r";
+
+	initializeCraftable();
+}
+
+void RustyFloor::initializeCraftable() {
+	name = "Rusty Floor";
+	description = "A simple and easy to build floor made of scrap metal";
+
+	priceMetal = 5;
+	priceMeat = 0;
+	priceAncient = 0;
 }
 
 string RustyFloor::toString()
