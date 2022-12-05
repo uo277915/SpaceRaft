@@ -61,6 +61,12 @@
     <Filter Include="Archivos de encabezado\GameObjects\Craftable\Tile">
       <UniqueIdentifier>{a5fdfb46-a923-476b-95bd-1a07a8ac1f6e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\UI">
+      <UniqueIdentifier>{87c1216f-5683-4200-a6d1-e02a4a05fd60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\UI">
+      <UniqueIdentifier>{0659dedc-0509-4010-aeaf-3a7c062eeac0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -92,9 +98,6 @@
     </ClInclude>
     <ClInclude Include="StoryLayer.h">
       <Filter>Archivos de encabezado\Layer</Filter>
-    </ClInclude>
-    <ClInclude Include="BoatUI.h">
-      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Archivos de encabezado\Item</Filter>
@@ -153,6 +156,12 @@
     <ClInclude Include="Craftable.h">
       <Filter>Archivos de encabezado\GameObjects\Craftable</Filter>
     </ClInclude>
+    <ClInclude Include="BoatUI.h">
+      <Filter>Archivos de encabezado\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDataUI.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -187,9 +196,6 @@
     </ClCompile>
     <ClCompile Include="StoryLayer.cpp">
       <Filter>Archivos de origen\Layer</Filter>
-    </ClCompile>
-    <ClCompile Include="BoatUI.cpp">
-      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Archivos de origen\Item</Filter>
@@ -247,6 +253,12 @@
     </ClCompile>
     <ClCompile Include="Craftable.cpp">
       <Filter>Archivos de origen\Crafteable</Filter>
+    </ClCompile>
+    <ClCompile Include="BoatUI.cpp">
+      <Filter>Archivos de origen\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDataUI.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -10,6 +10,12 @@ PlayerManager* PlayerManager::getInstance()
     return playerManagerInstance;
 }
 
+PlayerManager::PlayerManager() {
+    items = new vector<Item*>();
+    items->push_back(NULL);
+    items->push_back(NULL);
+}
+
 void PlayerManager::createPlayer(Game* game)
 {
     player = new Player(WIDTH/2, HEIGHT/2, game);
@@ -58,6 +64,34 @@ void PlayerManager::setSpawnPoint(float x, float y)
     spawnY = y;
     player->x = x;
     player->y = y;
+}
+void PlayerManager::update()
+{
+    timeUntilBreath--;
+
+    if (timeUntilBreath <= 0) {
+        timeUntilBreath = MAX_TIME_UNTIL_BREATH;
+        oxigen--;
+
+        if (oxigen <= 0) {
+            health--;
+        }
+    }
+
+    timeUntilHunger--;
+
+    if (timeUntilHunger <= 0) {
+        timeUntilHunger = MAX_TIME_UNTIL_HUNGER;
+        hunger--;
+
+        if (hunger <= 0) {
+            health--;
+        }
+    }
+
+    if (health <= 0) {
+        //die;
+    }
 }
 /*
 bool PlayerManager::canBuild(Craftable* craftable)

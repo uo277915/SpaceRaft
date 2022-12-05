@@ -8,6 +8,7 @@
 class PlayerManager
 {
 public:
+	PlayerManager();
 	static PlayerManager* getInstance();
 	Player* player;
 	void createPlayer(Game* game);
@@ -18,6 +19,7 @@ public:
 	void lowerHunger(int hunger);
 	void increaseHunger(int hunger);
 	void setSpawnPoint(float x, float y);
+	void update();
 
 	//bool canBuild(Craftable* craftable);
 
@@ -25,20 +27,26 @@ public:
 
 	const int MAX_HEALTH = 100;
 	const int MAX_HUNGER = 100;
+	const int MAX_OXIGEN = 100;
 	const float SPEED = 10;
 
+	int timeUntilBreath = 100;
+	int timeUntilHunger = 200;
 
-private:
+	const int MAX_TIME_UNTIL_HUNGER = 200;
+	const int MAX_TIME_UNTIL_BREATH = 100;
+
 	static PlayerManager* playerManagerInstance;
 
 	int metalAmount = 0;
 	int meatAmount = 0;
 	int ancientAmount = 0;
 
-	int health;
-	int hunger;
+	int health = 100;
+	int hunger = 50;
+	int oxigen = 100;
 
-	std::vector<Item> items;
+	std::vector<Item*>* items;
 
 	int spawnX = 0;
 	int spawnY = 0;

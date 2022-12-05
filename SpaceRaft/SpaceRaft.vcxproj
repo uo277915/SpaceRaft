@@ -171,6 +171,7 @@
     <ClInclude Include="Logger.h" />
     <ClInclude Include="MainMenuLayer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerDataUI.h" />
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="Pointer.h" />
     <ClInclude Include="TilePlacingPointer.h" />
@@ -204,6 +205,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenuLayer.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerDataUI.cpp" />
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="Pointer.cpp" />
     <ClCompile Include="TilePlacingPointer.cpp" />

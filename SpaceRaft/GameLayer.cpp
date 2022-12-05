@@ -18,7 +18,7 @@ GameLayer::GameLayer(Game* game)
 	tilePointer = new TilePlacingPointer(game);
 	tileRemover = new TileRemovePointer(game);
 	buildPointer = new BuildingPlacingPointer(game);
-
+	playerDataUI = new PlayerDataUI();
 }
 
 void GameLayer::init() {
@@ -83,6 +83,7 @@ void GameLayer::update() {
 	tileRemover->update(shipManager);
 	buildPointer->update(shipManager);
 	background->update();
+	PlayerManager::getInstance()->update();
 }
 
 void GameLayer::draw() {
@@ -93,6 +94,9 @@ void GameLayer::draw() {
 	tileRemover->draw();
 	buildPointer->draw();
 	PlayerManager::getInstance()->player->draw();
+
+	// ui
+	playerDataUI->draw(game->renderer);
 
 	SDL_RenderPresent(game->renderer); // Renderiza
 }

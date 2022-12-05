@@ -6,6 +6,7 @@
 #include "TilePlacingPointer.h"
 #include "TileRemovePointer.h"
 #include "BuildingPlacingPointer.h"
+#include "PlayerDataUI.h"
 
 /* Class defining the Game Layer */
 class GameLayer : public Layer
@@ -35,6 +36,7 @@ public:
 	TilePlacingPointer* tilePointer;
 	TileRemovePointer* tileRemover;
 	BuildingPlacingPointer* buildPointer;
+	PlayerDataUI* playerDataUI;
 
 	int controlMoveX = 0;
 	int controlMoveY = 0;

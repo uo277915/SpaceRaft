@@ -16,7 +16,7 @@ public:
     string name = "";
     string description = "";
     
-    Type type = Other;
+    Type type = OTHER;
 
     int priceMetal = 0;
     int priceMeat = 0;
