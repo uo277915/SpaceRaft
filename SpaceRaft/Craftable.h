@@ -1,6 +1,12 @@
 #pragma once
 #include "GameObject.h"
 
+extern enum Type {
+    TILE,
+    BUILDING,
+    OTHER
+};
+
 class Craftable :
     public GameObject
 {
@@ -10,6 +16,8 @@ public:
     string name = "";
     string description = "";
     
+    Type type = Other;
+
     int priceMetal = 0;
     int priceMeat = 0;
     int priceAncient = 0;

@@ -15,6 +15,6 @@ public:
 	Tile* loadMapObject(string string, float x, float y, CollisionController* collisionController, Game* game);
 
 protected:
-	static FileManager* instance;
+	static FileManager* fileManagerInstance;
 };
 

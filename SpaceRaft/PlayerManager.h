@@ -3,7 +3,7 @@
 #include "Item.h"
 #include <vector>
 #include "Player.h"
-#include "Craftable.h"
+//#include "Craftable.h"
 
 class PlayerManager
 {
@@ -19,7 +19,7 @@ public:
 	void increaseHunger(int hunger);
 	void setSpawnPoint(float x, float y);
 
-	bool canBuild(Craftable* craftable);
+	//bool canBuild(Craftable* craftable);
 
 	Item* selectedItem;
 
@@ -29,7 +29,7 @@ public:
 
 
 private:
-	static PlayerManager* instance;
+	static PlayerManager* playerManagerInstance;
 
 	int metalAmount = 0;
 	int meatAmount = 0;

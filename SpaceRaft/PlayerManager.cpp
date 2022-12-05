@@ -1,13 +1,13 @@
 #include "PlayerManager.h"
 
-PlayerManager* PlayerManager::instance = nullptr;
+PlayerManager* PlayerManager::playerManagerInstance = nullptr;
 
 PlayerManager* PlayerManager::getInstance()
 {
-    if (instance == nullptr) {
-        instance = new PlayerManager();
+    if (playerManagerInstance == nullptr) {
+        playerManagerInstance = new PlayerManager();
     }
-    return instance;
+    return playerManagerInstance;
 }
 
 void PlayerManager::createPlayer(Game* game)
@@ -59,7 +59,7 @@ void PlayerManager::setSpawnPoint(float x, float y)
     player->x = x;
     player->y = y;
 }
-
+/*
 bool PlayerManager::canBuild(Craftable* craftable)
 {
     if (craftable->priceMetal < metalAmount
@@ -69,4 +69,4 @@ bool PlayerManager::canBuild(Craftable* craftable)
         return true;
     }
     return false;
-}
+}*/

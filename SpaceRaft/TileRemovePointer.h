@@ -1,6 +1,6 @@
 #pragma once
 #include "Pointer.h"
-#include "PlayerManager.cpp"
+#include "PlayerManager.h"
 #include "CollisionController.h"
 class TileRemovePointer :
     public Pointer

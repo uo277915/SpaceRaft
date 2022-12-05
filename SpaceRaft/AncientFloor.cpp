@@ -14,6 +14,8 @@ void AncientFloor::initializeCraftable() {
 	name = "Ancient Floor";
 	description = "A weird looking floor... It looks... Great... Wait! How did i learn to do this?!";
 
+	type = TILE;
+
 	priceMetal = 10;
 	priceMeat = 0;
 	priceAncient = 5;

@@ -16,16 +16,16 @@
 #include <fstream> 
 #include <sstream> 
 
-FileManager* FileManager::instance = nullptr;
+FileManager* FileManager::fileManagerInstance = nullptr;
 
 FileManager* FileManager::getInstance()
 {
-    if (instance == nullptr) {
+    if (fileManagerInstance == nullptr) {
         Logger::log(0, "FileManager", "File Manager initialized");
-        instance = new FileManager();
+        fileManagerInstance = new FileManager();
     }
     Logger::log(0, "FileManager", "File Manager loaded");
-    return instance;
+    return fileManagerInstance;
 }
 
 void FileManager::loadPlayer()

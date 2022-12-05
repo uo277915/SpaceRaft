@@ -15,6 +15,8 @@ void RustyFloor::initializeCraftable() {
 	name = "Rusty Floor";
 	description = "A simple and easy to build floor made of scrap metal";
 
+	type = TILE;
+
 	priceMetal = 5;
 	priceMeat = 0;
 	priceAncient = 0;
