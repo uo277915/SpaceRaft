@@ -1,18 +1,11 @@
 #pragma once
 
-#include "Layer.h"
-#include "Text.h"
-#include "Audio.h" 
-#include "Background.h" 
-#include "FileManager.h" 
-#include "Tile.h" 
-#include "Pointer.h" 
-#include "TilePlacingPointer.h"
-#include "BuildingPlacingPointer.h"
-
-#include <list>
+#include "Background.h"
+#include "ShipManager.h"
 #include "CollisionController.h"
-
+#include "TilePlacingPointer.h"
+#include "TileRemovePointer.h"
+#include "BuildingPlacingPointer.h"
 
 /* Class defining the Game Layer */
 class GameLayer : public Layer
@@ -40,6 +33,7 @@ public:
 	ShipManager* shipManager;
 	CollisionController* collisionController;
 	TilePlacingPointer* tilePointer;
+	TileRemovePointer* tileRemover;
 	BuildingPlacingPointer* buildPointer;
 
 	int controlMoveX = 0;

@@ -1,19 +1,7 @@
 #pragma once
 
-#include "Logger.h"
-#include "PlayerManager.h"
-
-#include "Tile.h"
-#include "RustyFloor.h"
-#include "AncientFloor.h"
-#include "EmptyTile.h"
-#include "TileImageNotFound.h"
-
-#include "CollisionController.h"
 #include "ShipManager.h"
-
-#include <fstream> 
-#include <sstream> 
+#include "CollisionController.h"
 
 class FileManager
 {
@@ -27,6 +15,6 @@ public:
 	Tile* loadMapObject(string string, float x, float y, CollisionController* collisionController, Game* game);
 
 protected:
-	static FileManager* instance;
+	static FileManager* fileManagerInstance;
 };
 

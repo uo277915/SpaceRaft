@@ -1,7 +1,6 @@
 #pragma once
 #include "GameObject.h"
 #include "ShipManager.h"
-#include "TileImageNotFound.h"
 
 class Pointer :
     public GameObject

@@ -1,4 +1,5 @@
 #include "TileRemovePointer.h"
+#include "TileImageNotFound.h"
 #include "EmptyTile.h"
 
 
@@ -57,7 +58,12 @@ void TileRemovePointer::update(ShipManager* shipManager)
 					this->x = tile->x;
 					this->y = tile->y;
 
-					if (tile->built && tile->building == nullptr) {
+					auto* player = PlayerManager::getInstance()->player;
+
+					if (tile->built // Is built (not empty)
+						&& tile->building == nullptr // Has no building
+						&& !map[i][j]->containsPoint(player->x, player->y) // Player is not on top
+						) {
 
 						iToReplace = i;
 						jToReplace = j;

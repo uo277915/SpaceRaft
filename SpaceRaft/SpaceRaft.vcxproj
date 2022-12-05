@@ -156,9 +156,11 @@
     <ClInclude Include="Background.h" />
     <ClInclude Include="BoatUI.h" />
     <ClInclude Include="Building.h" />
+    <ClInclude Include="BuildingImageNotFound.h" />
     <ClInclude Include="BuildingPlacingPointer.h" />
     <ClInclude Include="BuildingRemovePointer.h" />
     <ClInclude Include="CollisionController.h" />
+    <ClInclude Include="Craftable.h" />
     <ClInclude Include="EmptyTile.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Game.h" />
@@ -186,9 +188,11 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BoatUI.cpp" />
     <ClCompile Include="Building.cpp" />
+    <ClCompile Include="BuildingImageNotFound.cpp" />
     <ClCompile Include="BuildingPlacingPointer.cpp" />
     <ClCompile Include="BuildingRemovePointer.cpp" />
     <ClCompile Include="CollisionController.cpp" />
+    <ClCompile Include="Craftable.cpp" />
     <ClCompile Include="EmptyTile.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Game.cpp" />

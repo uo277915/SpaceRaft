@@ -1,16 +1,31 @@
 #include "FileManager.h"
 #include "GameLayer.h"
 
-FileManager* FileManager::instance = nullptr;
+#include "Logger.h"
+//#include "PlayerManager.h"
+
+#include "Tile.h"
+#include "RustyFloor.h"
+#include "AncientFloor.h"
+#include "EmptyTile.h"
+#include "TileImageNotFound.h"
+
+#include "CollisionController.h"
+#include "ShipManager.h"
+
+#include <fstream> 
+#include <sstream> 
+
+FileManager* FileManager::fileManagerInstance = nullptr;
 
 FileManager* FileManager::getInstance()
 {
-    if (instance == nullptr) {
+    if (fileManagerInstance == nullptr) {
         Logger::log(0, "FileManager", "File Manager initialized");
-        instance = new FileManager();
+        fileManagerInstance = new FileManager();
     }
     Logger::log(0, "FileManager", "File Manager loaded");
-    return instance;
+    return fileManagerInstance;
 }
 
 void FileManager::loadPlayer()

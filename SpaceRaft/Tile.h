@@ -1,8 +1,9 @@
 #pragma once
-#include "GameObject.h"
+#include "Craftable.h"
 #include "Building.h"
+
 class Tile :
-    public GameObject
+    public Craftable
 {
 public:
     Tile(string filename, float x, float y, Game* game);

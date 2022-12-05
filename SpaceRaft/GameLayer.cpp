@@ -1,4 +1,13 @@
 #include "GameLayer.h"
+#include "Layer.h"
+#include "Text.h"
+#include "Audio.h"  
+#include "FileManager.h" 
+#include "Tile.h"
+#include "RustyFloor.h"
+
+#include <list>
+#include "CollisionController.h"
 
 GameLayer::GameLayer(Game* game)
 	: Layer(game) {
@@ -7,6 +16,7 @@ GameLayer::GameLayer(Game* game)
 	collisionController = new CollisionController();
 	shipManager = new ShipManager();
 	tilePointer = new TilePlacingPointer(game);
+	tileRemover = new TileRemovePointer(game);
 	buildPointer = new BuildingPlacingPointer(game);
 
 }
@@ -70,6 +80,7 @@ void GameLayer::update() {
 	collisionController->update();
 
 	tilePointer->update(shipManager);
+	tileRemover->update(shipManager);
 	buildPointer->update(shipManager);
 	background->update();
 }
@@ -79,6 +90,7 @@ void GameLayer::draw() {
 	background->draw();
 	shipManager->draw();
 	tilePointer->draw();
+	tileRemover->draw();
 	buildPointer->draw();
 	PlayerManager::getInstance()->player->draw();
 
@@ -114,6 +126,9 @@ void GameLayer::keysToControls(SDL_Event event) {
 		case SDLK_1:
 			tilePointer->loadTile(new RustyFloor(0, 0, game));
 			tilePointer->active = true;
+			break;
+		case SDLK_2:
+			tileRemover->active = true;
 			break;
 		}
 	}
@@ -155,6 +170,7 @@ void GameLayer::mouseToControls(SDL_Event event) {
 	// Cada vez que hacen click
 	if (event.type == SDL_MOUSEBUTTONDOWN) {
 		tilePointer->handleClick(shipManager, collisionController);
+		tileRemover->handleClick(shipManager, collisionController);
 	}
 }
 

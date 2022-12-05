@@ -1,11 +1,13 @@
 #pragma once
-
-#include "GameObject.h";
+#include "Craftable.h";
 
 class Building :
-	public GameObject
+	public Craftable
 {
 public:
+	Building(string filename, float x, float y, int width, int height, Game* game);
+
 	string id = "-";
+	bool hasCollision = false;
 };
 
