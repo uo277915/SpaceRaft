@@ -43,15 +43,6 @@
     <Filter Include="Archivos de encabezado\GameObjects\Pointers">
       <UniqueIdentifier>{4bb3950d-b92c-4c58-b7bd-326eca2b8249}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\Crafteable">
-      <UniqueIdentifier>{59399d10-4b2a-4882-9d38-047fe0763557}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Crafteable\Tile">
-      <UniqueIdentifier>{b3314ff2-434a-46bb-a215-6833a612734e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Crafteable\Buildings">
-      <UniqueIdentifier>{6fad088b-03ec-4cac-9669-ab6d2a5a379c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\GameObjects\Craftable">
       <UniqueIdentifier>{df5828d7-25ad-48bb-a1ce-e8e9e091f7d9}</UniqueIdentifier>
     </Filter>
@@ -66,6 +57,21 @@
     </Filter>
     <Filter Include="Archivos de origen\UI">
       <UniqueIdentifier>{0659dedc-0509-4010-aeaf-3a7c062eeac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\GameObjects\Trash">
+      <UniqueIdentifier>{13aa2ae3-4785-40df-a53a-c0d21c8899ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\GameObjects\Trash">
+      <UniqueIdentifier>{a00a034a-0dd2-4b55-80ec-afee31a5427b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\GameObjects\Crafteable">
+      <UniqueIdentifier>{59399d10-4b2a-4882-9d38-047fe0763557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\GameObjects\Crafteable\Tile">
+      <UniqueIdentifier>{b3314ff2-434a-46bb-a215-6833a612734e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\GameObjects\Crafteable\Buildings">
+      <UniqueIdentifier>{6fad088b-03ec-4cac-9669-ab6d2a5a379c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -159,7 +165,55 @@
     <ClInclude Include="BoatUI.h">
       <Filter>Archivos de encabezado\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Archivos de encabezado\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TrashGrabber.h">
+      <Filter>Archivos de encabezado\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoveBuildingItem.h">
+      <Filter>Archivos de encabezado\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="RemoveTileItem.h">
+      <Filter>Archivos de encabezado\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="TrashSpawner.h">
+      <Filter>Archivos de encabezado\GameObjects\Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="Trash.h">
+      <Filter>Archivos de encabezado\GameObjects\Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="MetalTrash.h">
+      <Filter>Archivos de encabezado\GameObjects\Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="MeatTrash.h">
+      <Filter>Archivos de encabezado\GameObjects\Trash</Filter>
+    </ClInclude>
+    <ClInclude Include="AncientTrash.h">
+      <Filter>Archivos de encabezado\GameObjects\Trash</Filter>
+    </ClInclude>
     <ClInclude Include="PlayerDataUI.h">
+      <Filter>Archivos de encabezado\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CraftingUI.h">
+      <Filter>Archivos de encabezado\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="FoodCheapBuilding.h">
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="FoodExpensiveBuilding.h">
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="OxigenExpenciveBuilding.h">
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="OxigenCheapBuilding.h">
+      <Filter>Archivos de encabezado\GameObjects\Craftable\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -201,16 +255,16 @@
       <Filter>Archivos de origen\Item</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
-      <Filter>Archivos de origen\Crafteable\Tile</Filter>
+      <Filter>Archivos de origen\GameObjects\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="RustyFloor.cpp">
-      <Filter>Archivos de origen\Crafteable\Tile</Filter>
+      <Filter>Archivos de origen\GameObjects\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="TileImageNotFound.cpp">
-      <Filter>Archivos de origen\Crafteable\Tile</Filter>
+      <Filter>Archivos de origen\GameObjects\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="EmptyTile.cpp">
-      <Filter>Archivos de origen\Crafteable\Tile</Filter>
+      <Filter>Archivos de origen\GameObjects\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Archivos de origen\GameObjects</Filter>
@@ -237,10 +291,10 @@
       <Filter>Archivos de origen\Managers</Filter>
     </ClCompile>
     <ClCompile Include="Building.cpp">
-      <Filter>Archivos de origen\Crafteable\Buildings</Filter>
+      <Filter>Archivos de origen\GameObjects\Crafteable\Buildings</Filter>
     </ClCompile>
     <ClCompile Include="AncientFloor.cpp">
-      <Filter>Archivos de origen\Crafteable\Tile</Filter>
+      <Filter>Archivos de origen\GameObjects\Crafteable\Tile</Filter>
     </ClCompile>
     <ClCompile Include="TileRemovePointer.cpp">
       <Filter>Archivos de origen\GameObjects\Pointers</Filter>
@@ -249,15 +303,63 @@
       <Filter>Archivos de origen\GameObjects\Pointers</Filter>
     </ClCompile>
     <ClCompile Include="BuildingImageNotFound.cpp">
-      <Filter>Archivos de origen\Crafteable\Buildings</Filter>
+      <Filter>Archivos de origen\GameObjects\Crafteable\Buildings</Filter>
     </ClCompile>
     <ClCompile Include="Craftable.cpp">
-      <Filter>Archivos de origen\Crafteable</Filter>
+      <Filter>Archivos de origen\GameObjects\Crafteable</Filter>
     </ClCompile>
     <ClCompile Include="BoatUI.cpp">
       <Filter>Archivos de origen\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Archivos de origen\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TrashGrabber.cpp">
+      <Filter>Archivos de origen\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoveBuildingItem.cpp">
+      <Filter>Archivos de origen\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="RemoveTileItem.cpp">
+      <Filter>Archivos de origen\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="TrashSpawner.cpp">
+      <Filter>Archivos de origen\GameObjects\Trash</Filter>
+    </ClCompile>
+    <ClCompile Include="Trash.cpp">
+      <Filter>Archivos de origen\GameObjects\Trash</Filter>
+    </ClCompile>
+    <ClCompile Include="MetalTrash.cpp">
+      <Filter>Archivos de origen\GameObjects\Trash</Filter>
+    </ClCompile>
+    <ClCompile Include="MeatTrash.cpp">
+      <Filter>Archivos de origen\GameObjects\Trash</Filter>
+    </ClCompile>
+    <ClCompile Include="AncientTrash.cpp">
+      <Filter>Archivos de origen\GameObjects\Trash</Filter>
+    </ClCompile>
     <ClCompile Include="PlayerDataUI.cpp">
+      <Filter>Archivos de origen\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CraftingUI.cpp">
+      <Filter>Archivos de origen\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="OxigenExpenciveBuilding.cpp">
+      <Filter>Archivos de origen\GameObjects\Crafteable\Buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="OxigenCheapBuilding.cpp">
+      <Filter>Archivos de origen\GameObjects\Crafteable\Buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="FoodCheapBuilding.cpp">
+      <Filter>Archivos de origen\GameObjects\Crafteable\Buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="FoodExpensiveBuilding.cpp">
+      <Filter>Archivos de origen\GameObjects\Crafteable\Buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Archivos de origen\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

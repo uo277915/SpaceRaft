@@ -21,6 +21,11 @@ void AncientFloor::initializeCraftable() {
 	priceAncient = 5;
 }
 
+Craftable* AncientFloor::clone()
+{
+	return new AncientFloor(x, y, game);
+}
+
 string AncientFloor::toString()
 {
 	return "Ancient";

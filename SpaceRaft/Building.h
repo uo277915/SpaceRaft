@@ -5,9 +5,9 @@ class Building :
 	public Craftable
 {
 public:
-	Building(string filename, float x, float y, int width, int height, Game* game);
+	Building(string filename, float x, float y, Game* game);
+	void craft() override;
 
 	string id = "-";
 	bool hasCollision = false;
 };
-

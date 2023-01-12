@@ -1,5 +1,7 @@
 #include "BuildingRemovePointer.h"
 #include "EmptyTile.h"
+#include "PlayerManager.h"
+#include "AudioManager.h"
 
 
 BuildingRemovePointer::BuildingRemovePointer(Game* game) : Pointer(game)
@@ -16,11 +18,11 @@ void BuildingRemovePointer::handleClick(ShipManager* shipManager, CollisionContr
 
 		if (placeable) {
 			shipManager->map[iToReplace][jToReplace]->building = nullptr;
-
-			active = false;
+			PlayerManager::getInstance(game)->buildingsDone--;
+			AudioManager::getInstance()->PlayDestroy();
 		}
 		else {
-			active = false;
+			AudioManager::getInstance()->PlayCannotBuild();
 		}
 	}
 }

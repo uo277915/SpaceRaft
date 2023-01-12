@@ -22,6 +22,11 @@ void RustyFloor::initializeCraftable() {
 	priceAncient = 0;
 }
 
+Craftable* RustyFloor::clone()
+{
+	return new RustyFloor(x, y, game);
+}
+
 string RustyFloor::toString()
 {
 	return "Rusty";

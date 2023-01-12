@@ -1,6 +1,8 @@
 #include "TileRemovePointer.h"
 #include "TileImageNotFound.h"
+#include "PlayerManager.h"
 #include "EmptyTile.h"
+#include "AudioManager.h"
 
 
 TileRemovePointer::TileRemovePointer(Game* game) : Pointer(game)
@@ -28,15 +30,15 @@ void TileRemovePointer::handleClick(ShipManager* shipManager, CollisionControlle
 			}
 
 			shipManager->map[iToReplace][jToReplace] = tileToPlace;
+			PlayerManager::getInstance(game)->buildingsDone--;
 
 			if (!oldTile->hasCollision) {
 				collisionController->addCollider(shipManager->map[iToReplace][jToReplace]);
 			}
-
-			active = false;
+			AudioManager::getInstance()->PlayDestroy();
 		}
 		else {
-			active = false;
+			AudioManager::getInstance()->PlayCannotBuild();
 		}
 	}
 }
@@ -58,7 +60,7 @@ void TileRemovePointer::update(ShipManager* shipManager)
 					this->x = tile->x;
 					this->y = tile->y;
 
-					auto* player = PlayerManager::getInstance()->player;
+					auto* player = PlayerManager::getInstance(game)->player;
 
 					if (tile->built // Is built (not empty)
 						&& tile->building == nullptr // Has no building

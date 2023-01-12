@@ -1,4 +1,6 @@
 #include "BuildingPlacingPointer.h"
+#include "PlayerManager.h"
+#include "AudioManager.h"
 
 BuildingPlacingPointer::BuildingPlacingPointer(Game* game) : Pointer(game)
 {
@@ -18,25 +20,24 @@ void BuildingPlacingPointer::handleClick(ShipManager* shipManager, CollisionCont
 		SDL_GetMouseState(&motionX, &motionY);
 
 		if (placeable) {
-			Building* oldBuilding = shipManager->map[iToReplace][jToReplace]->building;
+			Tile* tileToBuild = shipManager->map[iToReplace][jToReplace];
 
 			if (buildingToPlace == nullptr) {
 				//buildingToPlace = new TileImageNotFound(motionX, motionY, game);
 			}
 			else {
-				buildingToPlace->x = oldBuilding->x;
-				buildingToPlace->y = oldBuilding->y;
+				buildingToPlace->x = tileToBuild->x;
+				buildingToPlace->y = tileToBuild->y;
 			}
 
-			if (!buildingToPlace->hasCollision) {
-				collisionController->removeCollider(shipManager->map[iToReplace][jToReplace]);
-			}
 			shipManager->map[iToReplace][jToReplace]->building = buildingToPlace;
+			PlayerManager::getInstance(game)->buildingsDone++;
+			AudioManager::getInstance()->PlayBuild();
 
 			active = false;
 		}
 		else {
-			active = false;
+			AudioManager::getInstance()->PlayCannotBuild();
 		}
 	}
 }
@@ -64,6 +65,8 @@ void BuildingPlacingPointer::update(ShipManager* shipManager)
 						) {
 						texture = correct;
 						placeable = true;
+						iToReplace = i;
+						jToReplace = j;
 					}
 					else {
 						texture = wrong;

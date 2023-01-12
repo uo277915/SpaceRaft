@@ -23,5 +23,6 @@ public:
 
 	std::list<Background*>::iterator bgIterator;
 	int currentBG = -1;
+	bool changeScene = false;
 };
 

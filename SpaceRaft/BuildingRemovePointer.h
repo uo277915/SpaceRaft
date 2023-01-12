@@ -1,9 +1,11 @@
 #pragma once
 #include "Pointer.h"
 #include "CollisionController.h"
+
 class BuildingRemovePointer :
 	public Pointer
 {
+public:
 	BuildingRemovePointer(Game* game);
 	void handleClick(ShipManager* shipManager, CollisionController* collisionController);
 

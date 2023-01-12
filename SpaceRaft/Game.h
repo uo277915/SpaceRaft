@@ -41,6 +41,7 @@ public:
 	// Variables
 	map<string, SDL_Texture*> mapTextures; // map - cache
 	TTF_Font* font;
+	TTF_Font* tinyFont;
 	bool scaledToMax = false;
 	float scaleLower = 1;
 	SDL_Window* window;

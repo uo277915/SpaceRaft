@@ -12,6 +12,9 @@ void StoryLayer::init() {
 	backgrounds.push_back(new Background("res/img/story/story1.png", WIDTH * 0.5, HEIGHT * 0.5, game));
 	backgrounds.push_back(new Background("res/img/story/story2.png", WIDTH * 0.5, HEIGHT * 0.5, game));
 	backgrounds.push_back(new Background("res/img/story/story3.png", WIDTH * 0.5, HEIGHT * 0.5, game));
+	backgrounds.push_back(new Background("res/img/story/story4.png", WIDTH * 0.5, HEIGHT * 0.5, game));
+	backgrounds.push_back(new Background("res/img/story/story5.png", WIDTH * 0.5, HEIGHT * 0.5, game));
+	backgrounds.push_back(new Background("res/img/story/loading.png", WIDTH * 0.5, HEIGHT * 0.5, game));
 
 	bgIterator = backgrounds.begin();
 	background = *bgIterator;
@@ -19,8 +22,12 @@ void StoryLayer::init() {
 
 void StoryLayer::nextBackground() {
 	currentBG++;
-	if (currentBG >= backgrounds.size()-1) {
-		game->changeLayer(2);
+	if (currentBG >= backgrounds.size()-2) {
+		std::advance(bgIterator, 1);
+		background = *bgIterator;
+		background->update();
+		background->draw();
+		changeScene = true;
 	}
 	else {
 		std::advance(bgIterator, 1);
@@ -32,6 +39,11 @@ void StoryLayer::draw() {
 	background->draw();
 
 	SDL_RenderPresent(game->renderer); // Renderiza NO PUEDE FALTAR
+
+	if (changeScene) {
+		changeScene = false;
+		game->changeLayer(2);
+	}
 }
 
 void StoryLayer::processControls() {

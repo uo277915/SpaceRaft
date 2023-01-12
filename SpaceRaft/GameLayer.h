@@ -3,10 +3,15 @@
 #include "Background.h"
 #include "ShipManager.h"
 #include "CollisionController.h"
+
 #include "TilePlacingPointer.h"
 #include "TileRemovePointer.h"
 #include "BuildingPlacingPointer.h"
+#include "BuildingRemovePointer.h"
+
 #include "PlayerDataUI.h"
+#include "CraftingUI.h"
+#include "TrashSpawner.h"
 
 /* Class defining the Game Layer */
 class GameLayer : public Layer
@@ -28,17 +33,25 @@ public:
 	void mouseToControls(SDL_Event event);
 	void gamePadToControls(SDL_Event event);
 
+	void buildTile(Tile* tile);
+	void buildBuilding(Building* building);
+
 	//Variables
 	Background* background;
 	SDL_GameController* gamePad; // Mando
 	ShipManager* shipManager;
 	CollisionController* collisionController;
 	TilePlacingPointer* tilePointer;
-	TileRemovePointer* tileRemover;
 	BuildingPlacingPointer* buildPointer;
+	TileRemovePointer* tileRemover;
+	BuildingRemovePointer* buildRemover;
 	PlayerDataUI* playerDataUI;
+	TrashSpawner* trashSpawner;
+	CraftingUI* craftingUI;
 
 	int controlMoveX = 0;
 	int controlMoveY = 0;
+
+	bool grabbable = true;
 };
 

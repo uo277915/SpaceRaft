@@ -11,6 +11,8 @@ public:
 	Text(string content, float x, float y, Game* game);
 	/* Draws the text */
 	void draw();
+	void draw(TTF_Font* font);
+	void draw(int r, int g, int b);
 
 	//Variables
 	string content;

@@ -1,9 +1,11 @@
 #include "MainMenuLayer.h"
+#include "AudioManager.h"
 
 MainMenuLayer::MainMenuLayer(Game* game)
 	: Layer(game) {
 	init();
 	gamePad = SDL_GameControllerOpen(0);
+	AudioManager::getInstance()->PlayMainMenuMusic();
 
 	Logger::log(0, "MainMenuLayer", "initialized");
 }
@@ -42,6 +44,7 @@ void MainMenuLayer::processControls() {
 
 	//procesar controles, solo tiene uno
 	if (controlContinue) {
+		AudioManager::getInstance()->PlayClickMainMenu();
 		game->changeLayer(1);
 		controlContinue = false;
 	}

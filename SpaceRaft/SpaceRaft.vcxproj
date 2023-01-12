@@ -152,17 +152,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AncientFloor.h" />
+    <ClInclude Include="AncientTrash.h" />
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Audio.h" />
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="BoatUI.h" />
     <ClInclude Include="Building.h" />
     <ClInclude Include="BuildingImageNotFound.h" />
     <ClInclude Include="BuildingPlacingPointer.h" />
     <ClInclude Include="BuildingRemovePointer.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="CollisionController.h" />
     <ClInclude Include="Craftable.h" />
+    <ClInclude Include="CraftingUI.h" />
     <ClInclude Include="EmptyTile.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="FoodCheapBuilding.h" />
+    <ClInclude Include="FoodExpensiveBuilding.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameLayer.h" />
     <ClInclude Include="GameObject.h" />
@@ -170,10 +177,16 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="MainMenuLayer.h" />
+    <ClInclude Include="MeatTrash.h" />
+    <ClInclude Include="MetalTrash.h" />
+    <ClInclude Include="OxigenCheapBuilding.h" />
+    <ClInclude Include="OxigenExpenciveBuilding.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerDataUI.h" />
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="Pointer.h" />
+    <ClInclude Include="RemoveBuildingItem.h" />
+    <ClInclude Include="RemoveTileItem.h" />
     <ClInclude Include="TilePlacingPointer.h" />
     <ClInclude Include="RustyFloor.h" />
     <ClInclude Include="ShipManager.h" />
@@ -182,20 +195,30 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileImageNotFound.h" />
     <ClInclude Include="TileRemovePointer.h" />
+    <ClInclude Include="Trash.h" />
+    <ClInclude Include="TrashGrabber.h" />
+    <ClInclude Include="TrashSpawner.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AncientFloor.cpp" />
+    <ClCompile Include="AncientTrash.cpp" />
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BoatUI.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="BuildingImageNotFound.cpp" />
     <ClCompile Include="BuildingPlacingPointer.cpp" />
     <ClCompile Include="BuildingRemovePointer.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="CollisionController.cpp" />
     <ClCompile Include="Craftable.cpp" />
+    <ClCompile Include="CraftingUI.cpp" />
     <ClCompile Include="EmptyTile.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="FoodCheapBuilding.cpp" />
+    <ClCompile Include="FoodExpensiveBuilding.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameLayer.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -204,10 +227,16 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenuLayer.cpp" />
+    <ClCompile Include="MeatTrash.cpp" />
+    <ClCompile Include="MetalTrash.cpp" />
+    <ClCompile Include="OxigenCheapBuilding.cpp" />
+    <ClCompile Include="OxigenExpenciveBuilding.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerDataUI.cpp" />
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="Pointer.cpp" />
+    <ClCompile Include="RemoveBuildingItem.cpp" />
+    <ClCompile Include="RemoveTileItem.cpp" />
     <ClCompile Include="TilePlacingPointer.cpp" />
     <ClCompile Include="RustyFloor.cpp" />
     <ClCompile Include="ShipManager.cpp" />
@@ -216,6 +245,9 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileImageNotFound.cpp" />
     <ClCompile Include="TileRemovePointer.cpp" />
+    <ClCompile Include="Trash.cpp" />
+    <ClCompile Include="TrashGrabber.cpp" />
+    <ClCompile Include="TrashSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

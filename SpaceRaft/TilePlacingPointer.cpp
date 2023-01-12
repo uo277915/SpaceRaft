@@ -1,6 +1,8 @@
 #include "TilePlacingPointer.h"
 #include "TileImageNotFound.h"
 #include "GameLayer.h"
+#include "PlayerManager.h"
+#include "AudioManager.h"
 
 TilePlacingPointer::TilePlacingPointer(Game* game) : Pointer(game) 
 {
@@ -33,11 +35,13 @@ void TilePlacingPointer::handleClick(ShipManager* shipManager, CollisionControll
 				collisionController->removeCollider(shipManager->map[iToReplace][jToReplace]);
 			}
 			shipManager->map[iToReplace][jToReplace] = tileToPlace;
+			PlayerManager::getInstance(game)->buildingsDone++;
 
 			active = false;
+			AudioManager::getInstance()->PlayBuild();
 		}
 		else {
-			active = false;
+			AudioManager::getInstance()->PlayCannotBuild();
 		}
 	}
 }

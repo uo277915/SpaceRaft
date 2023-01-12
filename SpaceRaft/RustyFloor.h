@@ -8,7 +8,7 @@ public:
 
     string toString() override;
     void initializeCraftable() override;
-
+    Craftable* clone() override;
     void draw() { Tile::draw(); }
 };
 

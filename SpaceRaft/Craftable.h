@@ -23,5 +23,7 @@ public:
     int priceAncient = 0;
 
     virtual void initializeCraftable();
+    virtual void craft() {}
+    virtual Craftable* clone() { return nullptr; }
 };
 

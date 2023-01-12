@@ -7,8 +7,9 @@ class Tile :
 {
 public:
     Tile(string filename, float x, float y, Game* game);
-    void draw() { GameObject::draw(); }
+    void draw() override;
     virtual string toString();
+    void craft() override;
 
     bool buildable = false;
     bool built = false;

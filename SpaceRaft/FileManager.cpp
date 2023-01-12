@@ -10,8 +10,15 @@
 #include "EmptyTile.h"
 #include "TileImageNotFound.h"
 
+#include "FoodCheapBuilding.h"
+#include "FoodExpensiveBuilding.h"
+#include "OxigenCheapBuilding.h"
+#include "OxigenExpenciveBuilding.h"
+
 #include "CollisionController.h"
 #include "ShipManager.h"
+
+#include "PlayerManager.h"
 
 #include <fstream> 
 #include <sstream> 
@@ -26,12 +33,6 @@ FileManager* FileManager::getInstance()
     }
     Logger::log(0, "FileManager", "File Manager loaded");
     return fileManagerInstance;
-}
-
-void FileManager::loadPlayer()
-{
-	
-    Logger::log(1, "FileManager", "Player data has been loaded...");
 }
 
 void FileManager::loadShip(ShipManager* shipManager, CollisionController* collisionController, Game* game)
@@ -76,7 +77,7 @@ void FileManager::loadShip(ShipManager* shipManager, CollisionController* collis
     Logger::log(1, "FileManager", "Ship data has been loaded...");
 }
 
-void FileManager::saveShip(ShipManager* shipManager)
+void FileManager::saveShip(ShipManager* shipManager, Game* game)
 {
 	char character;
 	auto* map = shipManager->map;
@@ -98,7 +99,7 @@ void FileManager::saveShip(ShipManager* shipManager)
 					streamFile << "-";
 				}
 
-				auto* player = PlayerManager::getInstance()->player;
+				auto* player = PlayerManager::getInstance(game)->player;
 
 				if (map[i][j]->containsPoint(player->x, player->y)) {
 					streamFile << "1";
@@ -122,9 +123,11 @@ Tile* FileManager::loadMapObject(string string, float x, float y, CollisionContr
 		switch (string[0]) {
 		case 'r':
 			tile = new RustyFloor(x, y, game);
+			PlayerManager::getInstance(game)->buildingsDone++;
 			break;
 		case 'a':
 			tile = new AncientFloor(x, y, game);
+			PlayerManager::getInstance(game)->buildingsDone++;
 			break;
 		case '0':
 			tile = new EmptyTile(x, y, game);
@@ -136,6 +139,42 @@ Tile* FileManager::loadMapObject(string string, float x, float y, CollisionContr
 	// Buildings
 	if (string.length() >= 2) {
 		switch (string[1]) {
+		case 'f':
+			if (tile != nullptr) {
+				tile->building = new FoodCheapBuilding(tile->x, tile->y, tile->game);
+				tile->built = true;
+				tile->buildable = false;
+				PlayerManager::getInstance(game)->hungerStep -= 1;
+				PlayerManager::getInstance(game)->buildingsDone++;
+			}
+			break;
+		case 'F':
+			if (tile != nullptr) {
+				tile->building = new FoodExpensiveBuilding(tile->x, tile->y, tile->game);
+				tile->built = true;
+				tile->buildable = false;
+				PlayerManager::getInstance(game)->hungerStep -= 5;
+				PlayerManager::getInstance(game)->buildingsDone++;
+			}
+			break;
+		case 'o':
+			if (tile != nullptr) {
+				tile->building = new OxigenCheapBuilding(tile->x, tile->y, tile->game);
+				tile->built = true;
+				tile->buildable = false;
+				PlayerManager::getInstance(game)->oxigenStep -= 1;
+				PlayerManager::getInstance(game)->buildingsDone++;
+			}
+			break;
+		case 'O':
+			if (tile != nullptr) {
+				tile->building = new OxigenExpenciveBuilding(tile->x, tile->y, tile->game);
+				tile->built = true;
+				tile->buildable = false;
+				PlayerManager::getInstance(game)->oxigenStep -= 5;
+				PlayerManager::getInstance(game)->buildingsDone++;
+			}
+			break;
 		}
 	}
 
@@ -143,7 +182,7 @@ Tile* FileManager::loadMapObject(string string, float x, float y, CollisionContr
 	if (string.length() >= 3) {
 		switch (string[2]) {
 		case '1':
-			PlayerManager::getInstance()->setSpawnPoint(x, y);
+			PlayerManager::getInstance(game)->setSpawnPoint(x, y);
 			break;
 		}
 	}
@@ -155,12 +194,92 @@ Tile* FileManager::loadMapObject(string string, float x, float y, CollisionContr
 	return tile;
 }
 
+void FileManager::resetPlayer(Game* game)
+{
+	copyFiles("res/doc/initship.data", "res/doc/ship.data");
+	copyFiles("res/doc/initplayer.data", "res/doc/player.data");
+}
+
+void FileManager::copyFiles(string inputFilename, string outputFilename)
+{
+		std::ifstream input(inputFilename);
+		std::ofstream output(outputFilename);
+		if (input && output) {
+			std::string line;
+			while (std::getline(input, line)) {
+				output << line << std::endl;
+			}
+		}
+		else {
+			cerr << "PROBLEM COPYING FILES" << endl;
+		}
+		input.close();
+		output.close();
+}
+
 void FileManager::loadMap()
 {
     Logger::log(1, "FileManager", "Map data has been loaded...");
 }
 
-void FileManager::savePlayer()
+void FileManager::loadPlayer(Game* game)
 {
+	char character;
+	string line;
+	ifstream streamFile("res/doc/player.data");
+
+	if (!streamFile.is_open()) {
+		cout << "ERROR WHEN OPENING PLAYER FILE" << endl;
+		return;
+	}
+	else {
+		vector<int> data = {};
+		for (int i = 0; getline(streamFile, line); i++) {
+			istringstream streamLine(line);
+
+			int foundAt = 0;
+			for (int j = 0; j < 3; j++) {
+
+				foundAt = line.find("\t");
+
+				string word = line.substr(0, foundAt);
+				line = line.substr(foundAt + 1, line.size());
+
+				data.push_back(stoi(word));
+
+			}
+		}
+		PlayerManager::getInstance(game)->initialize(data);
+	}
+	streamFile.close();
+
+	Logger::log(1, "FileManager", "Player data has been loaded...");
+}
+
+void FileManager::savePlayer(Game* game)
+{
+	char character;
+	ofstream streamFile("res/doc/player.data");
+	if (!streamFile.is_open()) {
+		cout << "ERROR WHEN OPENING PLAYER FILE" << endl;
+		return;
+	}
+	else {
+		auto* player = PlayerManager::getInstance(game);
+
+		streamFile << std::to_string(player->health) + "\t";
+		streamFile << std::to_string(player->hunger) + "\t";
+		streamFile << std::to_string(player->oxigen) + "\t";
+
+		streamFile << "\n";
+
+		streamFile << std::to_string(player->metalAmount) + "\t";
+		streamFile << std::to_string(player->meatAmount) + "\t";
+		streamFile << std::to_string(player->ancientAmount) + "\t";
+
+		streamFile << "\n";
+	}
+	streamFile.close();
+
     Logger::log(1, "FileManager", "Player data has been saved...");
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Animation.h"
 
 class Player : public GameObject
 {
@@ -12,4 +13,6 @@ public:
 	void moveY(float vy);
 
 	float speed = 10;
+
+	Animation* playerAnimation;
 };

@@ -1,19 +1,21 @@
 #pragma once
 
-#include "Item.h"
 #include <vector>
 #include "Player.h"
-//#include "Craftable.h"
+#include "Craftable.h"
+#include "Item.h"
+#include "GameLayer.h"
 
 class PlayerManager
 {
 public:
-	PlayerManager();
-	static PlayerManager* getInstance();
+	PlayerManager(Game* game);
+	static PlayerManager* getInstance(Game* game);
+	void initialize(vector<int> data);
 	Player* player;
 	void createPlayer(Game* game);
-	void add(int metal, int meat);
-	bool use(int metal, int meat);
+	void add(int metal, int meat, int ancient);
+	bool use(int metal, int meat, int ancient);
 	void hit(int damage);
 	void heal(int health);
 	void lowerHunger(int hunger);
@@ -21,14 +23,25 @@ public:
 	void setSpawnPoint(float x, float y);
 	void update();
 
-	//bool canBuild(Craftable* craftable);
+	bool canBuild(Craftable* craftable);
+	void build(Craftable* craftable);
 
-	Item* selectedItem;
+	void SelectItem(int item, GameLayer* layer);
+	void NextItem(GameLayer* layer);
+	void PreviousItem(GameLayer* layer);
 
-	const int MAX_HEALTH = 100;
-	const int MAX_HUNGER = 100;
-	const int MAX_OXIGEN = 100;
+	Game* game;
+
+	int selectedItem = 0;
+
+	const float MAX_HEALTH = 100;
+	const float MAX_HUNGER = 100;
+	const float MAX_OXIGEN = 100;
 	const float SPEED = 10;
+
+	float healthStep = -0.25;
+	float hungerStep = -0.25;
+	float oxigenStep = -0.25;
 
 	int timeUntilBreath = 100;
 	int timeUntilHunger = 200;
@@ -50,4 +63,6 @@ public:
 
 	int spawnX = 0;
 	int spawnY = 0;
+
+	int buildingsDone = 0;
 };
